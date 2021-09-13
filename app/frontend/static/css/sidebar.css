@@ -1,0 +1,371 @@
+/* Sidebar */
+#sidebar-wrapper {
+    z-index: 1;
+    position: absolute;
+    width: 250px;
+    height: 99vh;
+    margin-left: 10px;
+    padding-right: 10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    transition: 0.3s;
+}
+
+/* Main content */
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding-left: 260px;
+    transition: 0.3s;
+    
+}
+
+/* Change the width of the sidebar to display it */
+#wrapper.menuDisplayed #sidebar-wrapper {
+    width: 0;
+    padding-right: 0px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+#wrapper.menuDisplayed #page-content-wrapper {
+    padding-left: 0px;
+}
+
+/* Sidebar styling */
+.menu-arrow {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    fill: #157d83;
+}
+
+#menu-toggle {
+    height: 45px;
+    width: 45px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.menu-arrow-rot {
+    transform: rotateZ(-180deg);
+}
+
+.menu-arrow:hover {
+    cursor: pointer;
+    fill: #378e92;
+}
+
+.sidebar-nav {
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-item {
+    display: block;
+    color: white;
+    line-height: 40px;
+
+}
+
+.sidebar-nav li {
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+}
+
+.sidebar-nav .hovered-nav-item:hover {
+    background: #343a41;
+}
+
+.sidebar-nav .hovered-nav-item,
+.board-item,
+.category-item:hover {
+    cursor: pointer;
+}
+
+.item-selected {
+    background: #464e57;
+}
+
+.sidebar-nav hr {
+    background-color: white;
+}
+
+/* Total numbers */
+.total-number {
+    border-radius: 5px;
+    border: 2px solid #666;
+    color: #fff;
+    margin: auto 10px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-indent: 0;
+}
+
+/* All tasks */
+.all-tasks-text {
+    color: rgb(255, 181, 71);
+}
+
+.category-item {
+    width: 100%;
+}
+
+.number {
+    padding: 5px;
+}
+
+
+/* Board section */
+.board-name {
+    width: 100%;
+}
+
+
+#sidebar-boards {
+    height: 350px;
+    overflow-x: hidden;
+    border-top: 1px solid #9d9a9a;
+}
+
+/* Category section */
+#sidebar-categories {
+    height: 350px;
+    overflow-x: hidden;
+    border-top: 1px solid #9d9a9a;
+}
+
+/* Section wrappers */
+#sidebar-new-task-wrapper,
+#board-wrapper,
+#category-wrapper {
+    border: 3px solid #157d83;
+    border-radius: 5px;
+}
+
+#sidebar-new-task {
+    height: 150px;
+}
+
+.new-task-text {
+    position: relative;
+    top: 10px
+}
+
+.newtask-icon {
+    width: 100%;
+    height: 120px;
+    top: 15px;
+    position: relative;
+
+}
+
+.sidebar-add-task-guest {
+    /* outline: none; */
+    width: 100%;
+    height: 120px;
+    top: 15px;
+    position: relative;
+    fill: gray
+}
+
+
+.newtask-icon:hover {
+    fill: yellowgreen;
+    cursor: pointer;
+}
+
+.newtask-icon:active {
+    transform: scale(0.95);
+}
+
+/* Dropdown */
+.dot-icon {
+    fill: #fff;
+    height: 100%;
+}
+
+.dot-icon:hover {
+    fill: tomato;
+    cursor: pointer;
+}
+
+.dropdown .dropdown-menu-sidebar {
+    height: auto;
+    min-width: 30px;
+    border: 1px solid lightblue;
+    left: 50% !important;
+}
+
+.rename-add-icon-sidebar {
+    fill: rgb(2, 168, 2);
+    width: 100%;
+}
+
+.rename-add-icon-sidebar:hover {
+    cursor: pointer;
+    fill: rgb(0, 243, 0);
+}
+
+/* Add icon */
+.category-add-icon {
+    height: 100%;
+}
+
+.category-add-icon:active {
+    transform: scale(0.9);
+}
+
+
+.sidebar-add-icon{
+    height: 100%;
+}
+
+.sidebar-add-icon:hover{
+    cursor: pointer;
+    fill: yellow;
+}
+
+.sidebar-add-icon:active{
+    transform: scale(0.9);
+}
+
+
+.sidebar-add-board-guest,
+.add-category-guest {
+    height: 100%;
+    fill: gray;
+    outline: none;
+}
+
+.category-add-icon:hover {
+    cursor: pointer;
+    fill: yellow;
+}
+
+/* Account tab */
+#account-wrapper {
+    height: 45px;
+    border: 3px solid #157d83;
+    border-radius: 5px;
+}
+
+.user-name-wrapper {
+    margin: auto 10px;
+}
+
+.user-name {
+    color: rgb(255, 196, 86);
+}
+
+#accountDropdown {
+    box-shadow: none;
+}
+
+.dropdown-menu-user {
+    transform: translate(251px, 8px) !important;
+    border: 3px solid #157d83;
+    padding-top: 0;
+    padding-bottom: 0;
+    min-width: 100px;
+    position: fixed !important;
+}
+
+.dropdown-caret {
+    fill: orange
+}
+
+.dropdown-caret:hover {
+    fill: yellow;
+}
+
+.dropdown-caret:active {
+    transform: scale(0.9);
+}
+
+li.account-dropdown-item {
+    text-indent: 0;
+    text-align: center;
+    padding: 0 5px 0 5px;
+}
+
+.account-dropdown-item:hover {
+    background-color: #343a41;
+    cursor: pointer;
+}
+
+.account-dropdown-item:first-child {
+    border-bottom: 1px grey solid;
+}
+
+#account-btn {
+    color: rgb(40, 212, 54);
+    text-decoration: none;
+}
+
+#logout-btn {
+    color: orange;
+    text-decoration: none;
+}
+
+#loginDropdown {
+    box-shadow: none;
+}
+
+#login-btn {
+    color: rgb(40, 212, 54);
+    text-decoration: none;
+}
+
+#tryforfree-btn {
+    color: rgb(20 222 255);
+    text-decoration: none;
+}
+
+.dropdown-menu-guest {
+    transform: translate(250px, 8px) !important;
+    border: 3px solid #157d83;
+    padding-top: 0;
+    padding-bottom: 0;
+    min-width: 100px;
+    position: fixed !important;
+}
+
+/* Misc */
+#misc-wrapper{
+    height: 100%;
+    border: 3px solid #157d83;
+    border-radius: 5px;
+}
+
+.misc-item:hover{
+    background-color: #343a41;
+}
+
+.misc-item:hover .misc-text{
+    color: white;
+}
+
+.misc-item:hover .misc-icon{
+    fill: orange;
+}
+
+.misc-link{
+    text-decoration: none;
+}
+
+.misc-text{
+    color: gray;
+}
+
+.misc-icon{
+    margin: auto 10px;
+    fill: rgb(145, 94, 0);
+}

@@ -1,0 +1,5 @@
+.task-col {
+    overflow-y: scroll;
+    height: 85vh;
+    padding: 0 10px 0 10px;
+}

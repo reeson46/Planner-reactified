@@ -1,0 +1,9 @@
+{% autoescape off %}
+
+Hi {{ user.username }},
+
+Your account has been successfully created. Click the link below to verify you account.
+
+http://{{ domain }}/account/verify/{{ uid }}/{{ token }}
+
+{% endautoescape %}

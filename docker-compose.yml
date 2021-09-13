@@ -1,0 +1,29 @@
+version: "3.7"
+
+services:
+  dev_planner-app:
+    build: ./app
+    #command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./app/:/usr/src/app/
+    ports:
+      - 8009:8000
+    env_file:
+      - ./app/.env
+    depends_on:
+      - DevPlanner
+  DevPlanner:
+    image: mysql:8.0.25
+    volumes:
+      - mysql_data:/var/lib/mysql/
+      - ./app/mysql:/docker-entrypoint-initdb.d
+    command: mysqld --default-authentication-plugin=mysql_native_password --skip-mysqlx
+    environment: 
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=DevPlanner
+      - MYSQL_USER=luka
+      - MYSQL_PASSWORD=kolo1234
+      - MYSQL_PORT='3306'
+  
+volumes:
+  mysql_data:

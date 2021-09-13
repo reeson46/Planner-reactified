@@ -1,0 +1,256 @@
+/* Task Card */
+.task-card-header-wrapper {
+    height: 70px;
+}
+
+.task-card-header {
+    height: 100%;
+}
+
+.task-col {
+    overflow-y: scroll;
+    height: 85vh;
+    padding: 0 10px 0 10px;
+}
+
+.task {
+    background-color: #454545;
+}
+
+
+.task-extend:hover {
+    cursor: pointer;
+    background-color: #55535c;
+}
+
+.task:not(:last-child) {
+    margin-bottom: 1rem
+}
+
+.task:last-child {
+    margin-bottom: 0;
+}
+
+.subtask-field:not(:last-child) {
+    margin-bottom: 1rem;
+}
+
+.subtask-field:last-child {
+    margin-bottom: 0;
+}
+
+#edit-task {
+    background-color: #ced027;
+}
+
+#edit-task:hover {
+    background-color: #adaf1e;
+}
+
+#edit-task:focus {
+    box-shadow: none;
+}
+
+#edit-task:active {
+    transform: scale(0.95);
+}
+
+.custom-subtask-checkbox {
+    background-color: #e3e3e3;
+}
+
+.custom-subtask-checkbox:checked {
+    background-color: #00A62F;
+    border-color: #00A62F;
+}
+
+.custom-subtask-checkbox:focus {
+    box-shadow: none;
+}
+
+.custom-subtask-checkbox:hover{
+    cursor: pointer;
+}
+
+
+.task-description-text,
+.task-subtask-text {
+    color: orange;
+}
+
+.task-title-text {
+    color: #ffbc41;
+    font-weight: bold;
+    margin: auto 0;
+    margin-left: 1rem;
+}
+
+.card-subtask {
+    padding-right: 10px;
+}
+
+.task-status-button:focus {
+    box-shadow: none;
+}
+
+.task-status-button {
+    background-color: cadetblue;
+}
+
+.dropdown-menu-taskcard {
+    min-width: 100px;
+    border: 2px solid #157d83;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.taskcard-status {
+    color: white;
+    padding: 3px;
+}
+
+.taskcard-status:hover {
+    background-color: #343a41;
+    cursor: pointer;
+}
+
+.current-status {
+    background-color: #3f464e;
+}
+
+/* Task Form*/
+.newtask-boardName{
+    color: orange;
+}
+
+.add-icon-task {
+    display: inherit;
+}
+
+.taskform-add-category-guest {
+    display: inherit;
+    fill: gray;
+}
+
+.add-icon-task:hover {
+    cursor: pointer;
+    fill: yellow;
+}
+
+.delete-icon-task {
+    position: relative;
+    left: 50px;
+}
+
+.delete-icon-task svg:hover {
+    cursor: pointer;
+    fill: orangered;
+}
+
+.new-task-wrapper {
+    width: 700px;
+    position: absolute;
+    left: calc(50% - 350px);
+    z-index: 15;
+    top: 0;
+}
+
+#new-task-wrapper {
+    height: 800px;
+}
+
+#individual-subtask {
+    height: 200px;
+    overflow: auto;
+}
+
+
+#create-task:focus {
+    box-shadow: none;
+}
+
+#create-task:active {
+    transform: scale(0.95);
+}
+
+#cancel-task {
+    background-color: #da8d00;
+    color: black;
+}
+
+#cancel-task:focus {
+    box-shadow: none;
+}
+
+#cancel-task:hover {
+    background-color: #ad7101;
+}
+
+#cancel-task:active {
+    transform: scale(0.95);
+}
+
+
+.custom-checkbox:checked {
+    background-color: coral;
+    border-color: coral;
+}
+
+.custom-checkbox:focus {
+    box-shadow: none;
+}
+
+.taskForm-field:focus {
+    border: 1px orange solid;
+    outline: none;
+    box-shadow: inset 0 0 3px 0px orange;
+}
+
+.required-field {
+    border: 1px red solid;
+    outline: none;
+    box-shadow: inset 0 0 3px 0px red;
+}
+
+.taskForm-bottom-section {
+    height: 80px;
+}
+
+#delete-task {
+    background-color: red;
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+#delete-task:hover {
+    background-color: rgb(255, 116, 116);
+}
+
+#delete-task:focus {
+    box-shadow: none;
+}
+
+#delete-task:active {
+    transform: scale(0.9);
+}
+
+/* Subtask progress bar */
+.subtask-circular-progress {
+    position: relative;
+    height: 57px;
+    width: 57px;
+    margin: auto 0;
+    margin-right: 6px;
+}
+
+.subtask-circular-progress .number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+}
