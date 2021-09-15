@@ -67,15 +67,13 @@ export const setTaskStatus = (status, id) => async (dispatch, getState) => {
 export const setTaskExtendState = id => async (dispatch, getState) => {
   const body = JSON.stringify({id});
   const res = await axios.patch('/api/set-extend/', body, tokenConfig(getState));
-  setTimeout(() => {
-    dispatch({
-      type: SET_TASK_EXTEND_STATE,
-      payload: {
-        id: res.data.id,
-        extend: res.data.extend
-      }
-    });
-  }, 500);
+  dispatch({
+    type: SET_TASK_EXTEND_STATE,
+    payload: {
+      id: res.data.id,
+      extend: res.data.extend
+    }
+  });
 }
 
 export const setSubtaskState = (state, id) => async (dispatch, getState) => {

@@ -2,7 +2,10 @@ import React from 'react';
 import Subtask from './Subtask'
 import Status from './Status'
 import CircularProgress from '@material-ui/core/CircularProgress';
-import { makeStyles } from '@material-ui/core';
+import MuiAccordion from '@material-ui/core/Accordion';
+import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
+import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
+import { makeStyles, withStyles } from '@material-ui/core';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setTaskFormVisibility, isEdit, getTaskToEdit } from '../../../state/action-creators/taskFormActions';
@@ -51,9 +54,39 @@ const useStyles = makeStyles({
   circle: {
     transition: "all 0.4s ease-in-out"
   }
+
+
 });
 
+const Accordion = withStyles({
+  root: {
+    backgroundColor: "#454545",
+    boxShadow: "0 .5rem 1rem rgba(0,0,0,.15)",
+    color: "#fff",
+    '&:not(:last-child)': {
+      marginBottom: "1rem"
+    }
+  }
+})(MuiAccordion);
 
+const AccordionSummary = withStyles({
+  root: {
+    borderBottom: "1px solid rgba(0,0,0,.125)",
+    height: "70px",
+    padding: "0",
+  },
+  content: {
+    justifyContent: "space-between",
+    display: "flex"
+  }
+})(MuiAccordionSummary);
+
+const AccordionDetails = withStyles({
+  root: {
+    padding: "0",
+    flexDirection: "column"
+  }
+})(MuiAccordionDetails);
 
 const TaskCard = ({task}) => {
   const dispatch = useDispatch();
@@ -127,10 +160,8 @@ const TaskCard = ({task}) => {
   }
 
   return (
-    <div className="card text-white task shadow" id={`panelsStayOpen-heading${task.id}`}>
-      <div onClick={() => onTaskClick(task.id)} className="card-header task-card-header-wrapper task-extend p-0" data-bs-toggle="collapse" data-bs-target={`#panelsStayOpen-collapse${task.id}`}
-        aria-expanded="true" aria-controls={`panelsStayOpen-collapse${task.id}`}>
-        <div className="d-flex justify-content-between task-card-header">
+    <Accordion expanded={task.extend_state} onChange={() => onTaskClick(task.id)}>
+      <AccordionSummary>
           <div className="card-subtitle fs-3 task-title-text">{task.name}</div>
           
           {task.subtask.length !== 0 ? (
@@ -160,12 +191,8 @@ const TaskCard = ({task}) => {
 
             </div>
           ) : ''}
-
-        </div>
-      </div>
-      <div id={`panelsStayOpen-collapse${task.id}`}
-        className={`accordion-collapse collapse ${task.extend_state && "show"}`}
-        aria-labelledby={`panelsStayOpen-collapse${task.id}`}>
+      </AccordionSummary>
+      <AccordionDetails>
         <div className="card-body">
           <div className="task-card-description"> 
 
@@ -202,9 +229,9 @@ const TaskCard = ({task}) => {
               <Status task={task} />
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+        </div>    
+      </AccordionDetails>
+    </Accordion>
   )
 }
 
