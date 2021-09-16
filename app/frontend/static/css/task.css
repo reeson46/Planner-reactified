@@ -18,19 +18,6 @@
 }
 
 
-.task-extend:hover {
-    cursor: pointer;
-    background-color: #55535c;
-}
-
-.task:not(:last-child) {
-    margin-bottom: 1rem
-}
-
-.task:last-child {
-    margin-bottom: 0;
-}
-
 .subtask-field:not(:last-child) {
     margin-bottom: 1rem;
 }

@@ -65,6 +65,9 @@ const Accordion = withStyles({
     color: "#fff",
     '&:not(:last-child)': {
       marginBottom: "1rem"
+    },
+    '&:(:last-child)': {
+      marginBottom: "0"
     }
   }
 })(MuiAccordion);
@@ -74,6 +77,10 @@ const AccordionSummary = withStyles({
     borderBottom: "1px solid rgba(0,0,0,.125)",
     height: "70px",
     padding: "0",
+    '&:hover': {
+      cursor: 'pointer',
+      backgroundColor: '#55535c'
+    }
   },
   content: {
     justifyContent: "space-between",
