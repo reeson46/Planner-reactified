@@ -63,8 +63,6 @@ const Dashboard = () => {
                   <TaskForm />
                 </animated.div>) : ''
               )}
-
-
               <Board />
             </div>
           </div>

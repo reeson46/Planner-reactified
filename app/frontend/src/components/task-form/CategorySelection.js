@@ -23,7 +23,8 @@ const CategorySelection = (props) => {
           
         }
         else {
-          setValue(props.category.active)
+          setValue(props.category.active);
+          props.handleCategorySelect(props.category.active);
         }
       }
     
