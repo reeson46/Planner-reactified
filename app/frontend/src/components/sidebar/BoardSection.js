@@ -6,12 +6,14 @@ import { getCategories } from '../../state/action-creators/categoryActions';
 import { getTasks } from '../../state/action-creators/taskActions';
 import { useDispatch, useSelector } from 'react-redux';
 import { MyTooltip } from '../Tooltip';
+import LoadingCircle from '../LoadingCircle';
 
 
 const BoardSection = () => {
   const dispatch = useDispatch();
   const boards = useSelector((state) => state.board.items);
   const active_board = useSelector((state) => state.board.active);
+  const isLoadingBoards = useSelector(state => state.board.isLoading);
   const user = useSelector(state => state.auth.user);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -79,6 +81,19 @@ const BoardSection = () => {
       </div>
       <div className="container" id="sidebar-boards">
         {single_board}
+
+        {isLoadingBoards ?
+          <div style={{
+            position: "absolute",
+            top: "54%",
+            left: "35%"
+            }}>
+            <LoadingCircle size={70} thickness={3} />
+          </div>
+          :
+          ""
+        }
+
       </div>
     </div>
   )

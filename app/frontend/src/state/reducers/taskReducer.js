@@ -6,11 +6,14 @@ import {
   DELETE_TASK, 
   INIT_TASKS,
   SET_TASK_EXTEND_STATE,
-  SET_SUBTASK_STATE
+  SET_SUBTASK_STATE,
+  IS_LOADING_TASKS,
+  IS_LOADING_TASKS_DONE
 } from "../action-creators/types";
 
 const initialState = {
-  items: []
+  items: [],
+  isLoading: false
 }
 
 const reducer = (state=initialState, action) => {
@@ -18,7 +21,8 @@ const reducer = (state=initialState, action) => {
     case GET_TASKS:
       return {
         ...state,
-        items: action.payload
+        items: action.payload,
+        isLoading: false
       }
       
     case INIT_TASKS:
@@ -30,7 +34,7 @@ const reducer = (state=initialState, action) => {
     case ADD_TASK:
       return {
         ...state,
-        items: [...state.items, action.payload]
+        items: [...state.items, action.payload],
       }
     
     case UPDATE_TASK:
@@ -79,6 +83,12 @@ const reducer = (state=initialState, action) => {
           : item)
       }
     
+    case IS_LOADING_TASKS:
+      return {
+        ...state,
+        isLoading: true
+      }
+        
     default:
         return state;
   }

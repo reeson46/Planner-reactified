@@ -1,9 +1,10 @@
-import { GET_CATEGORIES, ADD_CATEGORY, GET_ACTIVE_CATEGORY, SET_ACTIVE_CATEGORY, DELETE_CATEGORY, RENAME_CATEGORY, INIT_TASKS } from "./types";
+import { GET_CATEGORIES, ADD_CATEGORY, GET_ACTIVE_CATEGORY, SET_ACTIVE_CATEGORY, DELETE_CATEGORY, RENAME_CATEGORY, INIT_TASKS, IS_LOADING_CATEGORIES } from "./types";
 import axios from "axios";
 import { tokenConfig } from "./authActions";
 
 
 export const getCategories = () => async (dispatch, getState) => {
+  dispatch({type: IS_LOADING_CATEGORIES});
   const res = await axios.get('/api/get-categories/', tokenConfig(getState));
   dispatch({
     type: GET_CATEGORIES,

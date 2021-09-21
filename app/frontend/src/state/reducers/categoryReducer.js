@@ -1,8 +1,9 @@
-import { GET_CATEGORIES, ADD_CATEGORY, DELETE_CATEGORY, RENAME_CATEGORY, SET_ACTIVE_CATEGORY, GET_ACTIVE_CATEGORY, INIT_CATEGORIES } from "../action-creators/types";
+import { GET_CATEGORIES, ADD_CATEGORY, DELETE_CATEGORY, RENAME_CATEGORY, SET_ACTIVE_CATEGORY, GET_ACTIVE_CATEGORY, INIT_CATEGORIES, IS_LOADING_CATEGORIES } from "../action-creators/types";
 
 const initialState = {
   items: [],
-  active: 0
+  active: 0,
+  isLoading: false
 }
 
 const reducer = (state=initialState, action) => {
@@ -10,7 +11,8 @@ const reducer = (state=initialState, action) => {
     case GET_CATEGORIES:
       return {
         ...state,
-        items: action.payload
+        items: action.payload,
+        isLoading: false
       }
 
     case INIT_CATEGORIES:
@@ -47,6 +49,12 @@ const reducer = (state=initialState, action) => {
       return {
         ...state,
         active: action.payload
+      }
+    
+    case IS_LOADING_CATEGORIES:
+      return {
+        ...state,
+        isLoading: true
       }
 
     default:

@@ -1,9 +1,10 @@
-import { GET_BOARDS, ADD_BOARD, DELETE_BOARD, SET_ACTIVE_BOARD, GET_ACTIVE_BOARD, RENAME_BOARD, GET_SESSION } from "../action-creators/types";
+import { GET_BOARDS, ADD_BOARD, DELETE_BOARD, SET_ACTIVE_BOARD, GET_ACTIVE_BOARD, RENAME_BOARD, GET_SESSION, IS_LOADING_BOARDS } from "../action-creators/types";
 
 const initialState = {
   items: [],
   active: 0,
-  name: ''
+  name: '',
+  isLoading: false
 } 
 
 const reducer = (state=initialState, action) => {
@@ -11,7 +12,8 @@ const reducer = (state=initialState, action) => {
     case GET_BOARDS:
       return {
         ...state,
-        items: action.payload
+        items: action.payload,
+        isLoading: false
       }
     
     case ADD_BOARD:
@@ -46,6 +48,12 @@ const reducer = (state=initialState, action) => {
         name: state.items.find(item => item.id === action.payload).name
       }
     
+    case IS_LOADING_BOARDS:
+      return {
+        ...state,
+        isLoading: true
+      }
+        
     case GET_SESSION:
     default:
         return state;

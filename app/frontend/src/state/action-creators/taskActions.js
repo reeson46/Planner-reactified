@@ -5,13 +5,16 @@ import {
   UPDATE_TASK, 
   DELETE_TASK,
   SET_TASK_EXTEND_STATE,
-  SET_SUBTASK_STATE
+  SET_SUBTASK_STATE,
+  IS_LOADING_TASKS,
+  IS_LOADING_TASKS_DONE
 } from "./types";
 import { tokenConfig } from "./authActions";
 import axios from "axios";
 
 
 export const getTasks = () => async (dispatch, getState) => { 
+  dispatch({type: IS_LOADING_TASKS});
   const res = await axios.get('/api/get-tasks/', tokenConfig(getState));
   dispatch({
     type: GET_TASKS, 

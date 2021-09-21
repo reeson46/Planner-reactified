@@ -87,7 +87,7 @@ const TaskForm = () => {
   }
 
   const handleCategorySelect = (value) => {
-    setSelectedCategory(value)
+    setSelectedCategory(value);    
   }
 
   const handleStatusSelect = (value) => {

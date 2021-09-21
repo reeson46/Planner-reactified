@@ -6,7 +6,7 @@ const Board = () => {
   const tasks = useSelector(state => state.task.items);
   
   return (
-    <div className="row accordion">
+    <div className="row">
 
       <BoardColumn tasks={tasks} name={'Planned'} hr={'new1'} />
 

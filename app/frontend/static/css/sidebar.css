@@ -133,6 +133,7 @@
     height: 350px;
     overflow-x: hidden;
     border-top: 1px solid #9d9a9a;
+    position: relative;
 }
 
 /* Category section */
@@ -140,6 +141,7 @@
     height: 350px;
     overflow-x: hidden;
     border-top: 1px solid #9d9a9a;
+    position: relative;
 }
 
 /* Section wrappers */

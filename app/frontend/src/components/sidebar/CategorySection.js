@@ -6,12 +6,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getTasks } from '../../state/action-creators/taskActions';
 import { createCategory, setActiveCategory } from '../../state/action-creators/categoryActions';
 import { MyTooltip } from '../Tooltip';
+import LoadingCircle from '../LoadingCircle';
 
 const CategorySection = () => {
   const dispatch = useDispatch();
 
   const categories = useSelector((state) => state.category.items);
   const active_category = useSelector((state) => state.category.active);
+  const isLoadingCategories = useSelector(state => state.category.isLoading);
   const user = useSelector(state => state.auth.user);
 
   const [anchorEl, setAnchorEl] = useState(null);
@@ -103,6 +105,19 @@ const CategorySection = () => {
         <div id="categories-loop">
           {single_category}
         </div>
+        
+        {isLoadingCategories ?
+          <div style={{
+            position: "absolute",
+            top: "34%",
+            left: "35%"
+            }}>
+            <LoadingCircle size={70} thickness={3} />
+          </div>
+          :
+          ""
+        }
+
       </div>
     </div>
   )

@@ -1,4 +1,4 @@
-import { GET_BOARDS, ADD_BOARD, DELETE_BOARD, SET_ACTIVE_BOARD, RENAME_BOARD, GET_SESSION, INIT_CATEGORIES, INIT_TASKS  } from "./types";
+import { GET_BOARDS, ADD_BOARD, DELETE_BOARD, SET_ACTIVE_BOARD, RENAME_BOARD, GET_SESSION, INIT_CATEGORIES, INIT_TASKS, IS_LOADING_BOARDS  } from "./types";
 import { tokenConfig } from "./authActions";
 import axios from "axios";
 
@@ -10,6 +10,7 @@ export const getSession = () => async (dispatch, getState) => {
 }
 
 export const getBoards = () => async (dispatch, getState) => {
+  dispatch({type: IS_LOADING_BOARDS});
   const res = await axios.get('/api/get-boards/', tokenConfig(getState));
   dispatch({
     type: GET_BOARDS,

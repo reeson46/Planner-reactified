@@ -2,6 +2,7 @@ import React from 'react'
 import Sidebar from "./sidebar/Sidebar";
 import Board from "./board/Board";
 import TaskForm from './task-form/TaskForm';
+import LoadingCircle from './LoadingCircle';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { useTransition, animated } from 'react-spring';
@@ -15,6 +16,7 @@ const Dashboard = () => {
   const [menuToggle, setMenuToggle] = useState(0);
   const is_taskFormVisible = useSelector((state) => state.taskForm.isTaskFormVisible);
   const isReload = useSelector(state => state.utils.isReload);
+  const isLoadingTasks = useSelector(state => state.task.isLoading);
 
   const taskFormTransition = useTransition(is_taskFormVisible, {
     from: {y: -835, opacity: 0},
@@ -63,6 +65,19 @@ const Dashboard = () => {
                   <TaskForm />
                 </animated.div>) : ''
               )}
+              
+              {isLoadingTasks ? 
+                <div style={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%"
+                  }}>
+                  <LoadingCircle size={100} thickness={3} />
+                </div>
+                :
+                ""
+              }
+
               <Board />
             </div>
           </div>
